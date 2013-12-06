@@ -18,8 +18,22 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <input type="range" name="cutoff" id="cutoff" min="0" max="1" step="0.01" value="1"></input>
-    <input type="range" name="tempo" id="tempo" min="20" max="1500" value="800"></input>
+    <section class="sidebar">
+      <h3>Sequencer</h3>
+      <h6>A <a href="http://randomshapes.ca">Random Shapes</a> Experiment</h6>
+      <label for="cutoff">Filter</label>
+      <input type="range" name="cutoff" id="cutoff" min="0" max="1" step="0.01" value="1"></input>
+      <label for="tempo">Tempo</label>
+      <input type="range" name="tempo" id="tempo" min="20" max="420" value="120"></input>
+      <div class="titlelab">Octave</div>
+      <ul class="button-group">
+        <li><a href="#" class="small button">-</a></li>
+        <li><a href="#" class="small button">+</a></li>
+      </ul>
+
+      <div class="clear">Clear</div>
+    </section>
+
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="includes/js/snap.svg-min.js"></script>

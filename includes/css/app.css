@@ -3697,15 +3697,17 @@ form .row .row.collapse .columns {
   padding: 0;
 }
 /* line 85, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row.collapse input {
+form .row .row.collapse input, form .row .row.collapse .sidebar .titlelab, .sidebar form .row .row.collapse .titlelab {
   -moz-border-radius-bottomright: 0;
   -moz-border-radius-topright: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-top-right-radius: 0;
 }
 /* line 97, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row input.column,
+form .row input.column, form .row .sidebar .column.titlelab, .sidebar form .row .column.titlelab,
 form .row input.columns,
+form .row .sidebar .columns.titlelab,
+.sidebar form .row .columns.titlelab,
 form .row textarea.column,
 form .row textarea.columns {
   padding-left: 0.5rem;
@@ -3944,19 +3946,31 @@ span.postfix.radius, label.postfix.radius {
 
 /* We use this to get basic styling on all basic form elements */
 /* line 396, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="text"],
+input[type="text"], .sidebar [type="text"].titlelab,
 input[type="password"],
+.sidebar [type="password"].titlelab,
 input[type="date"],
+.sidebar [type="date"].titlelab,
 input[type="datetime"],
+.sidebar [type="datetime"].titlelab,
 input[type="datetime-local"],
+.sidebar [type="datetime-local"].titlelab,
 input[type="month"],
+.sidebar [type="month"].titlelab,
 input[type="week"],
+.sidebar [type="week"].titlelab,
 input[type="email"],
+.sidebar [type="email"].titlelab,
 input[type="number"],
+.sidebar [type="number"].titlelab,
 input[type="search"],
+.sidebar [type="search"].titlelab,
 input[type="tel"],
+.sidebar [type="tel"].titlelab,
 input[type="time"],
+.sidebar [type="time"].titlelab,
 input[type="url"],
+.sidebar [type="url"].titlelab,
 textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -3981,19 +3995,31 @@ textarea {
   transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
 }
 /* line 182, ../../bower_components/foundation/scss/foundation/components/_global.scss */
-input[type="text"]:focus,
+input[type="text"]:focus, .sidebar [type="text"].titlelab:focus,
 input[type="password"]:focus,
+.sidebar [type="password"].titlelab:focus,
 input[type="date"]:focus,
+.sidebar [type="date"].titlelab:focus,
 input[type="datetime"]:focus,
+.sidebar [type="datetime"].titlelab:focus,
 input[type="datetime-local"]:focus,
+.sidebar [type="datetime-local"].titlelab:focus,
 input[type="month"]:focus,
+.sidebar [type="month"].titlelab:focus,
 input[type="week"]:focus,
+.sidebar [type="week"].titlelab:focus,
 input[type="email"]:focus,
+.sidebar [type="email"].titlelab:focus,
 input[type="number"]:focus,
+.sidebar [type="number"].titlelab:focus,
 input[type="search"]:focus,
+.sidebar [type="search"].titlelab:focus,
 input[type="tel"]:focus,
+.sidebar [type="tel"].titlelab:focus,
 input[type="time"]:focus,
+.sidebar [type="time"].titlelab:focus,
 input[type="url"]:focus,
+.sidebar [type="url"].titlelab:focus,
 textarea:focus {
   -webkit-box-shadow: 0 0 5px #999999;
   -moz-box-shadow: 0 0 5px #999999;
@@ -4001,54 +4027,81 @@ textarea:focus {
   border-color: #999999;
 }
 /* line 123, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="text"]:focus,
+input[type="text"]:focus, .sidebar [type="text"].titlelab:focus,
 input[type="password"]:focus,
+.sidebar [type="password"].titlelab:focus,
 input[type="date"]:focus,
+.sidebar [type="date"].titlelab:focus,
 input[type="datetime"]:focus,
+.sidebar [type="datetime"].titlelab:focus,
 input[type="datetime-local"]:focus,
+.sidebar [type="datetime-local"].titlelab:focus,
 input[type="month"]:focus,
+.sidebar [type="month"].titlelab:focus,
 input[type="week"]:focus,
+.sidebar [type="week"].titlelab:focus,
 input[type="email"]:focus,
+.sidebar [type="email"].titlelab:focus,
 input[type="number"]:focus,
+.sidebar [type="number"].titlelab:focus,
 input[type="search"]:focus,
+.sidebar [type="search"].titlelab:focus,
 input[type="tel"]:focus,
+.sidebar [type="tel"].titlelab:focus,
 input[type="time"]:focus,
+.sidebar [type="time"].titlelab:focus,
 input[type="url"]:focus,
+.sidebar [type="url"].titlelab:focus,
 textarea:focus {
   background: #fafafa;
   border-color: #999999;
   outline: none;
 }
 /* line 130, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="text"][disabled],
+input[type="text"][disabled], .sidebar [type="text"][disabled].titlelab,
 input[type="password"][disabled],
+.sidebar [type="password"][disabled].titlelab,
 input[type="date"][disabled],
+.sidebar [type="date"][disabled].titlelab,
 input[type="datetime"][disabled],
+.sidebar [type="datetime"][disabled].titlelab,
 input[type="datetime-local"][disabled],
+.sidebar [type="datetime-local"][disabled].titlelab,
 input[type="month"][disabled],
+.sidebar [type="month"][disabled].titlelab,
 input[type="week"][disabled],
+.sidebar [type="week"][disabled].titlelab,
 input[type="email"][disabled],
+.sidebar [type="email"][disabled].titlelab,
 input[type="number"][disabled],
+.sidebar [type="number"][disabled].titlelab,
 input[type="search"][disabled],
+.sidebar [type="search"][disabled].titlelab,
 input[type="tel"][disabled],
+.sidebar [type="tel"][disabled].titlelab,
 input[type="time"][disabled],
+.sidebar [type="time"][disabled].titlelab,
 input[type="url"][disabled],
+.sidebar [type="url"][disabled].titlelab,
 textarea[disabled] {
   background-color: #dddddd;
 }
 
 /* Adjust margin for form elements below */
 /* line 410, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="file"],
+input[type="file"], .sidebar [type="file"].titlelab,
 input[type="checkbox"],
+.sidebar [type="checkbox"].titlelab,
 input[type="radio"],
+.sidebar [type="radio"].titlelab,
 select {
   margin: 0 0 1rem 0;
 }
 
 /* line 415, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type="checkbox"] + label, .sidebar [type="checkbox"].titlelab + label,
+input[type="radio"] + label,
+.sidebar [type="radio"].titlelab + label {
   display: inline-block;
   margin-left: 0.5rem;
   margin-right: 1rem;
@@ -4058,7 +4111,7 @@ input[type="radio"] + label {
 
 /* Normalize file input width */
 /* line 424, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input[type="file"] {
+input[type="file"], .sidebar [type="file"].titlelab {
   width: 100%;
 }
 
@@ -4110,7 +4163,7 @@ span.error, small.error {
 }
 
 /* line 447, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-.error input,
+.error input, .error .sidebar .titlelab, .sidebar .error .titlelab,
 .error textarea,
 .error select {
   margin-bottom: 0;
@@ -4139,7 +4192,7 @@ span.error, small.error {
 }
 
 /* line 467, ../../bower_components/foundation/scss/foundation/components/_forms.scss */
-input.error,
+input.error, .sidebar .error.titlelab,
 textarea.error {
   margin-bottom: 0;
 }
@@ -5398,7 +5451,7 @@ div.switch label {
   transition: all 0.1s ease-out;
 }
 /* line 88, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input {
+div.switch input, div.switch .sidebar .titlelab, .sidebar div.switch .titlelab {
   position: absolute;
   z-index: 3;
   opacity: 0;
@@ -5407,7 +5460,7 @@ div.switch input {
   -moz-appearance: none;
 }
 /* line 98, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:hover, div.switch input:focus {
+div.switch input:hover, div.switch .sidebar .titlelab:hover, .sidebar div.switch .titlelab:hover, div.switch input:focus, div.switch .sidebar .titlelab:focus, .sidebar div.switch .titlelab:focus {
   cursor: pointer;
 }
 /* line 104, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
@@ -5425,38 +5478,46 @@ div.switch span:last-child {
   transition: all 0.1s ease-out;
 }
 /* line 119, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:not(:checked) + label {
+div.switch input:not(:checked) + label, div.switch .sidebar .titlelab:not(:checked) + label, .sidebar div.switch .titlelab:not(:checked) + label {
   opacity: 0;
 }
 /* line 122, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:checked {
+div.switch input:checked, div.switch .sidebar .titlelab:checked, .sidebar div.switch .titlelab:checked {
   display: none !important;
 }
 /* line 123, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input {
+div.switch input, div.switch .sidebar .titlelab, .sidebar div.switch .titlelab {
   left: 0;
   display: block !important;
 }
 /* line 127, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:first-of-type + label,
-div.switch input:first-of-type + span + label {
+div.switch input:first-of-type + label, div.switch .sidebar .titlelab:first-of-type + label, .sidebar div.switch .titlelab:first-of-type + label,
+div.switch input:first-of-type + span + label,
+div.switch .sidebar .titlelab:first-of-type + span + label,
+.sidebar div.switch .titlelab:first-of-type + span + label {
   left: -50%;
 }
 /* line 129, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:first-of-type:checked + label,
-div.switch input:first-of-type:checked + span + label {
+div.switch input:first-of-type:checked + label, div.switch .sidebar .titlelab:first-of-type:checked + label, .sidebar div.switch .titlelab:first-of-type:checked + label,
+div.switch input:first-of-type:checked + span + label,
+div.switch .sidebar .titlelab:first-of-type:checked + span + label,
+.sidebar div.switch .titlelab:first-of-type:checked + span + label {
   left: 0%;
 }
 /* line 133, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:last-of-type + label,
-div.switch input:last-of-type + span + label {
+div.switch input:last-of-type + label, div.switch .sidebar .titlelab:last-of-type + label, .sidebar div.switch .titlelab:last-of-type + label,
+div.switch input:last-of-type + span + label,
+div.switch .sidebar .titlelab:last-of-type + span + label,
+.sidebar div.switch .titlelab:last-of-type + span + label {
   right: -50%;
   left: auto;
   text-align: right;
 }
 /* line 135, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:last-of-type:checked + label,
-div.switch input:last-of-type:checked + span + label {
+div.switch input:last-of-type:checked + label, div.switch .sidebar .titlelab:last-of-type:checked + label, .sidebar div.switch .titlelab:last-of-type:checked + label,
+div.switch input:last-of-type:checked + span + label,
+div.switch .sidebar .titlelab:last-of-type:checked + span + label,
+.sidebar div.switch .titlelab:last-of-type:checked + span + label {
   right: 0%;
   left: auto;
 }
@@ -5477,7 +5538,7 @@ div.switch label {
   font-size: 0.875rem;
 }
 /* line 177, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch input:first-of-type:checked ~ span:last-child {
+div.switch input:first-of-type:checked ~ span:last-child, div.switch .sidebar .titlelab:first-of-type:checked ~ span:last-child, .sidebar div.switch .titlelab:first-of-type:checked ~ span:last-child {
   left: 100%;
   margin-left: -2.1875rem;
 }
@@ -5518,7 +5579,7 @@ div.switch.large label {
   font-size: 1.0625rem;
 }
 /* line 177, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch.large input:first-of-type:checked ~ span:last-child {
+div.switch.large input:first-of-type:checked ~ span:last-child, div.switch.large .sidebar .titlelab:first-of-type:checked ~ span:last-child, .sidebar div.switch.large .titlelab:first-of-type:checked ~ span:last-child {
   left: 100%;
   margin-left: -2.6875rem;
 }
@@ -5538,7 +5599,7 @@ div.switch.small label {
   font-size: 0.75rem;
 }
 /* line 177, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch.small input:first-of-type:checked ~ span:last-child {
+div.switch.small input:first-of-type:checked ~ span:last-child, div.switch.small .sidebar .titlelab:first-of-type:checked ~ span:last-child, .sidebar div.switch.small .titlelab:first-of-type:checked ~ span:last-child {
   left: 100%;
   margin-left: -1.6875rem;
 }
@@ -5558,7 +5619,7 @@ div.switch.tiny label {
   font-size: 0.6875rem;
 }
 /* line 177, ../../bower_components/foundation/scss/foundation/components/_switch.scss */
-div.switch.tiny input:first-of-type:checked ~ span:last-child {
+div.switch.tiny input:first-of-type:checked ~ span:last-child, div.switch.tiny .sidebar .titlelab:first-of-type:checked ~ span:last-child, .sidebar div.switch.tiny .titlelab:first-of-type:checked ~ span:last-child {
   left: 100%;
   margin-left: -1.3125rem;
 }
@@ -6406,11 +6467,13 @@ meta.foundation-mq-topbar {
 }
 /* line 137, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar form,
-.top-bar input {
+.top-bar input,
+.top-bar .sidebar .titlelab,
+.sidebar .top-bar .titlelab {
   margin-bottom: 0;
 }
 /* line 139, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
-.top-bar input {
+.top-bar input, .top-bar .sidebar .titlelab, .sidebar .top-bar .titlelab {
   height: auto;
   padding-top: .35rem;
   padding-bottom: .35rem;
@@ -6705,7 +6768,7 @@ meta.foundation-mq-topbar {
     width: auto;
   }
   /* line 423, ../../bower_components/foundation/scss/foundation/components/_top-bar.scss */
-  .top-bar input,
+  .top-bar input, .top-bar .sidebar .titlelab, .sidebar .top-bar .titlelab,
   .top-bar .button {
     font-size: 0.875rem;
     position: relative;
@@ -7704,10 +7767,124 @@ th.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 4, ../scss/app.scss */
+/* line 11, ../scss/app.scss */
 svg {
   position: absolute;
   left: 50%;
   top: 50px;
-  margin-left: -400px;
+  margin-left: -300px;
+}
+
+/* line 21, ../scss/app.scss */
+input:focus, .sidebar .titlelab:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* line 25, ../scss/app.scss */
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 300px;
+  padding: 20px;
+  background-color: #eee;
+  -webkit-box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
+  box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
+}
+/* line 33, ../scss/app.scss */
+.sidebar h6 {
+  margin: -5px 0 15px 0;
+}
+/* line 36, ../scss/app.scss */
+.sidebar input, .sidebar .titlelab {
+  width: 100%;
+}
+/* line 39, ../scss/app.scss */
+.sidebar #cutoff {
+  -webkit-appearance: none;
+  background-color: #76C6BE;
+  padding: 5px;
+  transition: background-color 0.5s;
+}
+/* line 45, ../scss/app.scss */
+.sidebar #tempo {
+  -webkit-appearance: none;
+  background-color: #FF5B60;
+  padding: 5px;
+  transition: background-color 0.5s;
+}
+/* line 51, ../scss/app.scss */
+.sidebar input[type="range"]::-webkit-slider-thumb, .sidebar [type="range"].titlelab::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #666;
+  opacity: 0.5;
+  width: 10px;
+  height: 26px;
+}
+/* line 58, ../scss/app.scss */
+.sidebar label {
+  margin: 5px 0 5px 0;
+  font-size: 17px;
+}
+/* line 62, ../scss/app.scss */
+.sidebar .titlelab {
+  margin: 7px 0 7px 0;
+}
+/* line 66, ../scss/app.scss */
+.sidebar .button-group {
+  width: 100%;
+}
+/* line 68, ../scss/app.scss */
+.sidebar .button-group .button {
+  width: 130px;
+}
+/* line 72, ../scss/app.scss */
+.sidebar .clear {
+  transition: background-color 0.5s;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  /*     @else                            { font-size: $padding - rem-calc(2); } */
+  background-color: #a276cc;
+  border-color: #9563c5;
+  color: white;
+  width: 100%;
+  margin: 0;
+}
+/* line 142, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
+.sidebar .clear:hover, .sidebar .clear:focus {
+  background-color: #9563c5;
+}
+/* line 153, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
+.sidebar .clear:hover, .sidebar .clear:focus {
+  color: white;
+}
+/* line 77, ../scss/app.scss */
+.sidebar .clear:hover {
+  background-color: #895db3;
+}
+
+/* line 83, ../scss/app.scss */
+#tempo:hover {
+  background-color: #e64247;
+}
+
+/* line 86, ../scss/app.scss */
+#cutoff:hover {
+  background-color: #5dada5;
 }

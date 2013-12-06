@@ -32,6 +32,12 @@ $(document).ready(function(){
 		nodes.filter.frequency.value = cutoff;
 	});
 
+	$("#tempo").on("change", function() {
+		bpm = $(this).val();
+		beatCalc();
+		beatToken = true;
+	});
+
 	//Load Sounds, from the array "sounds" above
 	function loadSounds(){
 		var xhr = new XMLHttpRequest();
@@ -100,7 +106,7 @@ $(document).ready(function(){
 	function playSine(hz,soundCount) {
 		allowed[hz] = false;
 		source[soundCount] = context.createOscillator();
-		source[soundCount].type = 0;
+		source[soundCount].type = 3;
 		source[soundCount].frequency.value = hz;
 		source[soundCount] = sineSourceRouting(source[soundCount],soundCount);
 		source[soundCount].noteOn(0);
@@ -140,6 +146,10 @@ $(document).ready(function(){
 	var iShow = 0;
 	var bpm = 120;
 	var tempo;
+	var beatToken = false;
+	var beatTime = null;
+	var iBeat = 0;
+	var iPrev = 0;
 
 	function canvasInit() {
 		var i = 0;
@@ -178,41 +188,52 @@ $(document).ready(function(){
 	}
 
 	function beatMarker() {
-		var i = 0;
-		var iPrev = 0;
-		setInterval(function() {
-			if (i === 0) {
-				iPrev = 15;
+		beatTime = setInterval(function() {
+			if (beatToken === true) {
+				clearInterval(beatTime);
+				beatToken = false;
+				beatMarker();
 			} else {
-				iPrev = (i - 1);
-			}
-
-			for (var y = 1; y<=8; y++){
-				if (group[i].select("circle:nth-child("+y+")")._selected === true) {
-					playSeqSound(y);
+				if (iBeat === 0) {
+					iPrev = 15;
 				} else {
-					group[i].select("circle:nth-child("+y+")").attr({fill: "#aaa"});
+					iPrev = (iBeat - 1);
 				}
-				if (group[iPrev].select("circle:nth-child("+y+")")._selected === true) {
-				} else {
-					group[iPrev].select("circle:nth-child("+y+")").attr({fill: "#ddd"});
+
+				for (var y = 1; y<=8; y++){
+					if (group[iBeat].select("circle:nth-child("+y+")")._selected === true) {
+						playSeqSound(y);
+					} else {
+						group[iBeat].select("circle:nth-child("+y+")").attr({fill: "#aaa"});
+					}
+					if (group[iPrev].select("circle:nth-child("+y+")")._selected === true) {
+					} else {
+						group[iPrev].select("circle:nth-child("+y+")").attr({fill: "#ddd"});
+					}
 				}
-			}
 
 
-			i++;
-			if (i >= 16) {
-				i = 0;
-			}
+				iBeat++;
+				if (iBeat >= 16) {
+					iBeat = 0;
+				}
+		}
 		}, tempo);
 	}
 
 	function circleClick () {
+		var colours = {
+			0: "#76C6BE",
+			1: "#FF5B60",
+			2: "#008cba",
+			3: "#a276cc"
+		};
+		var num = Math.floor(Math.random()*4);
 		if (this._selected === true) {
 			this.attr({fill: "#ddd"});
 			this._selected = false;
 		} else {
-		this.attr({fill: "#A29FE0"});
+		this.attr({fill: colours[num]});
 		this._selected = true;
 		}
 	}

@@ -1,9 +1,88 @@
 @import "settings";
 @import "foundation";
 
+@mixin drop-shadow() {
+	-webkit-box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    2px 2px 0px rgba(50, 50, 50, 0.35);
+	box-shadow:         2px 2px 0px rgba(50, 50, 50, 0.35);
+}
+
+
 svg {
 	position: absolute;
 	left: 50%;
 	top: 50px;
-	margin-left: -400px;
+	margin-left: -300px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.sidebar {
+	position: absolute;
+	left: 0;
+	top: 50px;
+	width: 300px;
+	padding: 20px;
+	background-color: #eee;
+	@include drop-shadow();
+	h6 {
+		margin: -5px 0 15px 0;
+	}
+	input {
+		width: 100%;
+	}
+	#cutoff {
+	    -webkit-appearance: none;
+	    background-color: #76C6BE;
+	    padding: 5px;
+	    transition: background-color 0.5s;
+	}
+	#tempo {
+		-webkit-appearance: none;
+	    background-color: #FF5B60;
+	    padding: 5px;
+	    transition: background-color 0.5s;
+	}
+	input[type="range"]::-webkit-slider-thumb {
+	    -webkit-appearance: none;
+	    background-color: #666;
+	    opacity: 0.5;
+	    width: 10px;
+	    height: 26px;
+	}
+	label {
+		margin: 5px 0 5px 0;
+		font-size: 17px;
+	}
+	.titlelab {
+		@extend input;
+		margin: 7px 0 7px 0;
+	}
+	.button-group {
+		width:100%;
+		.button {
+			width: 130px;
+		}
+	}
+	.clear {
+		transition: background-color 0.5s;
+		@include button($button-med, #A276CC, false, false, false, false);
+		width: 100%;
+		margin: 0;
+		&:hover {
+			background-color: #A276CC - 25;
+		}
+	}
+}
+
+#tempo:hover {
+    background-color: #FF5B60 - 25;
+}
+#cutoff:hover {
+	background-color: #76C6BE - 25;
 }

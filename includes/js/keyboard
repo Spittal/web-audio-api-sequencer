@@ -1,0 +1,129 @@
+	$(document).keydown(function(e){
+		var code = e.keyCode || e.which;
+		var hz = 440;
+		switch (code)
+		{
+			case 65: //C
+				hz = 261.63;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 87: //C#
+				hz = 277.18;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 83: //D
+				hz = 293.66;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 69: //D#
+				hz = 311.13;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 68: //E
+				hz = 329.63;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 70: //F
+				hz = 349.23;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 84: //F#
+				hz = 369.99;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 71: //G
+				hz = 392.00;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 89: //G#
+				hz = 415.30;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 72: //A
+				hz = 440;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 85: //A#
+				hz = 466.16;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 74: //B
+				hz = 493.88;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+			case 75: //C
+				hz = 523.25;
+				if (allowed[hz] !== false) {
+				playSine(hz);
+				}
+				break;
+		}
+	});
+	$(document).keyup(function(e){
+		var code = e.keyCode || e.which;
+		switch (code)
+		{
+			case 65:
+				stopSine(261.63);
+				break;
+			case 87:
+				stopSine(277.18);
+				break;
+			case 83:
+				stopSine(293.66);
+				break;
+			case 69:
+				stopSine(311.13);
+				break;
+			case 68:
+				stopSine(329.63);
+				break;
+			case 70:
+				stopSine(349.23);
+				break;
+			case 84:
+				stopSine(369.99);
+				break;
+			case 71:
+				stopSine(392.00);
+				break;
+			case 89:
+				stopSine(415.30);
+				break;
+			case 72:
+				stopSine(440.00);
+				break;
+			case 85:
+				stopSine(466.16);
+				break;
+			case 74:
+				stopSine(493.88);
+				break;
+			case 75:
+				stopSine(523.25);
+		}
+	});

@@ -19,6 +19,8 @@ $(document).ready(function(){
 	//Vars for listeners
 	var cutoff = 22000;
 
+	var soundCounter = 0;
+
 	//Listeners
 	$("#cutoff").on("change", function() {
 		var mod = $(this).val();
@@ -67,12 +69,12 @@ $(document).ready(function(){
 	}
 
 	//This routes through nodes, creating nodes if necessary.
-	function sineSourceRouting(source) {
+	function sineSourceRouting(source,soundCount) {
 		//Create unique nodes based on played note.
-		if (nodes[source.frequency.value + "ADSRnode"] == null) {
-			nodes[source.frequency.value + "ADSRnode"] = context.createGainNode();
+		if (nodes[soundCount + "ADSRnode"] == null) {
+			nodes[soundCount + "ADSRnode"] = context.createGainNode();
 		}
-		var ADSR = nodes[source.frequency.value + "ADSRnode"];
+		var ADSR = nodes[soundCount + "ADSRnode"];
 
 		//Create and Set uni-nodes ONLY ONCE
 		if (nodeCreateToken !== false)  {
@@ -95,24 +97,26 @@ $(document).ready(function(){
 		return source;
 	}
 
-	function playSine(hz) {
+	function playSine(hz,soundCount) {
 		allowed[hz] = false;
-		source[hz] = context.createOscillator();
-		source[hz].type = 0;
-		source[hz].frequency.value = hz;
-		source[hz] = sineSourceRouting(source[hz]);
-		source[hz].noteOn(0);
+		source[soundCount] = context.createOscillator();
+		source[soundCount].type = 0;
+		source[soundCount].frequency.value = hz;
+		source[soundCount] = sineSourceRouting(source[soundCount],soundCount);
+		source[soundCount].noteOn(0);
+		soundCounter++;
 	}
 
-	function stopSine(hz) {
+	function stopSine(hz,soundCount) {
 		allowed[hz] = true;
-		var ADSR = nodes[source[hz].frequency.value + "ADSRnode"];
+		var ADSR = nodes[soundCount + "ADSRnode"];
 		var currTime = context.currentTime;
 
 		//SET Release
 		ADSR.gain.setTargetAtTime(0, currTime, 0.2);
 
-		source[hz].noteOff(currTime + 5);
+		source[soundCount].noteOff(currTime + 5);
+		setTimeout(delete source[soundCount], 5000);
 	}
 
 	function playSound(name) {
@@ -217,23 +221,36 @@ $(document).ready(function(){
 		var hz = 440;
 		switch (row)
 		{
-			case 8: //C
-				hz = 261.63;
+			case 8: //A
+				hz = 440.0;
 				break;
-			case 7: //C#
-				hz = 277.18;
+			case 7: //B
+				hz = 493.88;
 				break;
-			case 6: //D
-				hz = 293.66;
+			case 6: //C#
+				hz = 554.37;
 				break;
-			case 5: //D#
-				hz = 311.13;
+			case 5: //D
+				hz = 587.33;
+				break;
+			case 4: //E
+				hz = 659.26;
+				break;
+			case 3: //F#
+				hz = 739.99;
+				break;
+			case 2: //D#
+				hz = 783.99;
+				break;
+			case 1: //D#
+				hz = 880.0;
 				break;
 		}
 		clearTimeout(sineTimer[hz]);
-		playSine(hz);
-		sineTimer[hz] = setTimeout(function(){
-			stopSine(hz);
+		var count = soundCounter;
+		playSine(hz,count);
+		sineTimer[count] = setTimeout(function(){
+			stopSine(hz,count);
 		}, 50);
 	}
 

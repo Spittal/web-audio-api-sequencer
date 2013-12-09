@@ -171,6 +171,7 @@ $(document).ready(function(){
 		//Set Filter
 		nodes.filter.type = 0;
 		nodes.filter.frequency.value = cutoff;
+		nodes.filter.Q.value = 10;
 
 		//Set Convolver
 		nodes.reverb.buffer = buffers.ir;
@@ -210,6 +211,14 @@ $(document).ready(function(){
 		source.connect(ADSR);
 		ADSR.connect(nodes.filter);
 
+		//delay connections
+		for (var i=1; i<=taps; i++) {
+			nodes.filter.connect(nodes.delay["vol"+i]);
+			nodes.delay["vol"+i].connect(nodes.delay[i]);
+			nodes.delay[i].connect(nodes.dry);
+			nodes.delay[i].connect(nodes.wet);
+		}
+
 		//Dry Wet for Verb
 		nodes.filter.connect(nodes.dry);
 		nodes.filter.connect(nodes.wet);
@@ -219,13 +228,6 @@ $(document).ready(function(){
 		//final connections
 		nodes.volume.connect(context.destination);
 		nodes.reverb.connect(context.destination);
-
-		//delay connections
-		for (var i=1; i<=taps; i++) {
-			nodes.volume.connect(nodes.delay["vol"+i]);
-			nodes.delay["vol"+i].connect(nodes.delay[i]);
-			nodes.delay[i].connect(nodes.reverb);
-		}
 
 		return source;
 	}

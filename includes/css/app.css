@@ -7818,6 +7818,14 @@ button:focus {
   transition: background-color 0.5s;
 }
 /* line 51, ../scss/app.scss */
+.sidebar #volume {
+  -webkit-appearance: none;
+  background-color: #FF5B60;
+  padding: 5px;
+  margin-top: 0;
+  transition: background-color 0.5s;
+}
+/* line 58, ../scss/app.scss */
 .sidebar input[type="range"]::-webkit-slider-thumb, .sidebar [type="range"].titlelab::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #666;
@@ -7825,24 +7833,38 @@ button:focus {
   width: 10px;
   height: 26px;
 }
-/* line 58, ../scss/app.scss */
+/* line 65, ../scss/app.scss */
 .sidebar label {
   margin: 5px 0 5px 0;
   font-size: 17px;
 }
-/* line 62, ../scss/app.scss */
+/* line 69, ../scss/app.scss */
 .sidebar .titlelab {
   margin: 7px 0 7px 0;
 }
-/* line 66, ../scss/app.scss */
-.sidebar .button-group {
+/* line 73, ../scss/app.scss */
+.sidebar .octave-but {
   width: 100%;
 }
-/* line 68, ../scss/app.scss */
-.sidebar .button-group .button {
+/* line 75, ../scss/app.scss */
+.sidebar .octave-but .button {
   width: 130px;
+  margin-bottom: 0px;
 }
-/* line 72, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
+.sidebar .tempo-but {
+  width: 100%;
+}
+/* line 82, ../scss/app.scss */
+.sidebar .tempo-but .button {
+  width: 86px;
+  margin-bottom: 0px;
+}
+/* line 86, ../scss/app.scss */
+.sidebar .tempo-but #tempo-whole {
+  background-color: #0079a1;
+}
+/* line 90, ../scss/app.scss */
 .sidebar .clear {
   transition: background-color 0.5s;
   cursor: pointer;
@@ -7864,7 +7886,7 @@ button:focus {
   border-color: #9563c5;
   color: white;
   width: 100%;
-  margin: 0;
+  margin: 25px 0 5px 0;
 }
 /* line 142, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .sidebar .clear:hover, .sidebar .clear:focus {
@@ -7874,17 +7896,22 @@ button:focus {
 .sidebar .clear:hover, .sidebar .clear:focus {
   color: white;
 }
-/* line 77, ../scss/app.scss */
+/* line 95, ../scss/app.scss */
 .sidebar .clear:hover {
   background-color: #895db3;
 }
 
-/* line 83, ../scss/app.scss */
+/* line 101, ../scss/app.scss */
 #tempo:hover {
   background-color: #e64247;
 }
 
-/* line 86, ../scss/app.scss */
+/* line 104, ../scss/app.scss */
 #cutoff:hover {
   background-color: #5dada5;
+}
+
+/* line 107, ../scss/app.scss */
+#volume:hover {
+  background-color: #e64247;
 }

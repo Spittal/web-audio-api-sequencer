@@ -24,13 +24,20 @@
       <label for="cutoff">Filter</label>
       <input type="range" name="cutoff" id="cutoff" min="0" max="1" step="0.01" value="1"></input>
       <label for="tempo">Tempo</label>
-      <input type="range" name="tempo" id="tempo" min="20" max="420" value="120"></input>
-      <div class="titlelab">Octave</div>
-      <ul class="button-group">
-        <li><a href="#" class="small button">-</a></li>
-        <li><a href="#" class="small button">+</a></li>
+      <input type="range" name="tempo" id="tempo" min="20" max="600" value="320"></input>
+      <label for="volume">Volume</label>
+      <input type="range" name="volume" id="volume" min="0" max="1" step="0.01" value="0.8"></input>
+      <div id="oct-title" class="titlelab">Octave:0</div>
+      <ul class="octave-but button-group">
+        <li><a id="oct-down" href="#" class="small button">-</a></li>
+        <li><a id="oct-up" href="#" class="small button">+</a></li>
       </ul>
-
+      <div id="tempo-title" class="titlelab">Delay Time</div>
+      <ul class="tempo-but button-group">
+        <li><a id="tempo-half" href="#" class="small button">1/2</a></li>
+        <li><a id="tempo-whole" href="#" class="small button">1</a></li>
+        <li><a id="tempo-double" href="#" class="small button">2</a></li>
+      </ul>
       <div class="clear">Clear</div>
     </section>
 

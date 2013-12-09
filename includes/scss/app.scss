@@ -48,6 +48,13 @@ button:focus {
 	    padding: 5px;
 	    transition: background-color 0.5s;
 	}
+	#volume {
+		-webkit-appearance: none;
+	    background-color: #FF5B60;
+	    padding: 5px;
+	    margin-top: 0;
+	    transition: background-color 0.5s;
+	}
 	input[type="range"]::-webkit-slider-thumb {
 	    -webkit-appearance: none;
 	    background-color: #666;
@@ -63,17 +70,28 @@ button:focus {
 		@extend input;
 		margin: 7px 0 7px 0;
 	}
-	.button-group {
+	.octave-but {
 		width:100%;
 		.button {
 			width: 130px;
+			margin-bottom: 0px;
+		}
+	}
+	.tempo-but {
+		width:100%;
+		.button {
+			width: 86px;
+			margin-bottom: 0px;
+		}
+		#tempo-whole {
+			background-color: #0079a1;
 		}
 	}
 	.clear {
 		transition: background-color 0.5s;
 		@include button($button-med, #A276CC, false, false, false, false);
 		width: 100%;
-		margin: 0;
+		margin: 25px 0 5px 0;
 		&:hover {
 			background-color: #A276CC - 25;
 		}
@@ -85,4 +103,7 @@ button:focus {
 }
 #cutoff:hover {
 	background-color: #76C6BE - 25;
+}
+#volume:hover {
+    background-color: #FF5B60 - 25;
 }

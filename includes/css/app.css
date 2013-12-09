@@ -7767,15 +7767,15 @@ th.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 11, ../scss/app.scss */
+/* line 25, ../scss/app.scss */
 svg {
   position: absolute;
   left: 50%;
-  top: 50px;
+  top: 75px;
   margin-left: -300px;
 }
 
-/* line 21, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 input:focus, .sidebar .titlelab:focus,
 select:focus,
 textarea:focus,
@@ -7783,11 +7783,11 @@ button:focus {
   outline: none;
 }
 
-/* line 25, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .sidebar {
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 60px;
   width: 300px;
   padding: 20px;
   background-color: #eee;
@@ -7795,37 +7795,61 @@ button:focus {
   -moz-box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
   box-shadow: 2px 2px 0px rgba(50, 50, 50, 0.35);
 }
-/* line 33, ../scss/app.scss */
+/* line 47, ../scss/app.scss */
 .sidebar h6 {
   margin: -5px 0 15px 0;
 }
-/* line 36, ../scss/app.scss */
+/* line 50, ../scss/app.scss */
 .sidebar input, .sidebar .titlelab {
   width: 100%;
 }
-/* line 39, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .sidebar #cutoff {
   -webkit-appearance: none;
-  background-color: #76C6BE;
+  background-color: #cc2d30;
   padding: 5px;
   transition: background-color 0.5s;
 }
-/* line 45, ../scss/app.scss */
+/* line 58, ../scss/app.scss */
+.sidebar #cutoff:hover {
+  background-color: #b31417;
+}
+/* line 62, ../scss/app.scss */
 .sidebar #tempo {
   -webkit-appearance: none;
-  background-color: #FF5B60;
+  background-color: #a8cee2;
   padding: 5px;
   transition: background-color 0.5s;
 }
-/* line 51, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
+.sidebar #tempo:hover {
+  background-color: #8fb5c9;
+}
+/* line 71, ../scss/app.scss */
 .sidebar #volume {
   -webkit-appearance: none;
-  background-color: #FF5B60;
+  background-color: #c4e58e;
   padding: 5px;
   margin-top: 0;
   transition: background-color 0.5s;
 }
-/* line 58, ../scss/app.scss */
+/* line 77, ../scss/app.scss */
+.sidebar #volume:hover {
+  background-color: #abcc75;
+}
+/* line 81, ../scss/app.scss */
+.sidebar #reverb {
+  -webkit-appearance: none;
+  background-color: #339e35;
+  padding: 5px;
+  margin-top: 0;
+  transition: background-color 0.5s;
+}
+/* line 87, ../scss/app.scss */
+.sidebar #reverb:hover {
+  background-color: #1a851c;
+}
+/* line 91, ../scss/app.scss */
 .sidebar input[type="range"]::-webkit-slider-thumb, .sidebar [type="range"].titlelab::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #666;
@@ -7833,38 +7857,48 @@ button:focus {
   width: 10px;
   height: 26px;
 }
-/* line 65, ../scss/app.scss */
+/* line 98, ../scss/app.scss */
 .sidebar label {
   margin: 5px 0 5px 0;
   font-size: 17px;
 }
-/* line 69, ../scss/app.scss */
+/* line 103, ../scss/app.scss */
 .sidebar .titlelab {
   margin: 7px 0 7px 0;
 }
-/* line 73, ../scss/app.scss */
+/* line 108, ../scss/app.scss */
 .sidebar .octave-but {
   width: 100%;
 }
-/* line 75, ../scss/app.scss */
+/* line 110, ../scss/app.scss */
 .sidebar .octave-but .button {
   width: 130px;
   margin-bottom: 0px;
+  background-color: #cc2d30;
 }
-/* line 80, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
+.sidebar .octave-but .button:hover {
+  background-color: #b31417;
+}
+/* line 120, ../scss/app.scss */
 .sidebar .tempo-but {
   width: 100%;
 }
-/* line 82, ../scss/app.scss */
+/* line 122, ../scss/app.scss */
 .sidebar .tempo-but .button {
   width: 86px;
   margin-bottom: 0px;
+  background-color: #a8cee2;
 }
-/* line 86, ../scss/app.scss */
+/* line 126, ../scss/app.scss */
+.sidebar .tempo-but .button:hover {
+  background-color: #8fb5c9;
+}
+/* line 130, ../scss/app.scss */
 .sidebar .tempo-but #tempo-whole {
-  background-color: #0079a1;
+  background-color: #8fb5c9;
 }
-/* line 90, ../scss/app.scss */
+/* line 135, ../scss/app.scss */
 .sidebar .clear {
   transition: background-color 0.5s;
   cursor: pointer;
@@ -7882,36 +7916,34 @@ button:focus {
   padding-left: 2rem;
   font-size: 1rem;
   /*     @else                            { font-size: $padding - rem-calc(2); } */
-  background-color: #a276cc;
-  border-color: #9563c5;
-  color: white;
+  background-color: #c4e58e;
+  border-color: #b9e079;
+  color: #333333;
   width: 100%;
   margin: 25px 0 5px 0;
 }
 /* line 142, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .sidebar .clear:hover, .sidebar .clear:focus {
-  background-color: #9563c5;
+  background-color: #b9e079;
 }
-/* line 153, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
+/* line 148, ../../bower_components/foundation/scss/foundation/components/_buttons.scss */
 .sidebar .clear:hover, .sidebar .clear:focus {
-  color: white;
+  color: #333333;
 }
-/* line 95, ../scss/app.scss */
+/* line 140, ../scss/app.scss */
 .sidebar .clear:hover {
-  background-color: #895db3;
+  background-color: #abcc75;
 }
 
-/* line 101, ../scss/app.scss */
-#tempo:hover {
-  background-color: #e64247;
+/* line 146, ../scss/app.scss */
+.lights {
+  background-image: url("../img/lights.gif");
+  height: 56px;
+  width: 100%;
 }
 
-/* line 104, ../scss/app.scss */
-#cutoff:hover {
-  background-color: #5dada5;
-}
-
-/* line 107, ../scss/app.scss */
-#volume:hover {
-  background-color: #e64247;
+/* line 152, ../scss/app.scss */
+#lights-2 {
+  position: absolute;
+  top: 690px;
 }

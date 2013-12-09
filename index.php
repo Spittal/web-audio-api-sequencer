@@ -18,6 +18,8 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <section class="lights"></section>
+
     <section class="sidebar">
       <h3>Sequencer</h3>
       <h6>A <a href="http://randomshapes.ca">Random Shapes</a> Experiment</h6>
@@ -27,6 +29,8 @@
       <input type="range" name="tempo" id="tempo" min="20" max="600" value="320"></input>
       <label for="volume">Volume</label>
       <input type="range" name="volume" id="volume" min="0" max="1" step="0.01" value="0.8"></input>
+      <label for="reverb">Reverb</label>
+      <input type="range" name="reverb" id="reverb" min="0" max="1" step="0.01" value="0.5"></input>
       <div id="oct-title" class="titlelab">Octave:0</div>
       <ul class="octave-but button-group">
         <li><a id="oct-down" href="#" class="small button">-</a></li>
@@ -40,6 +44,8 @@
       </ul>
       <div class="clear">Clear</div>
     </section>
+
+    <section id="lights-2" class="lights"></section>
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>

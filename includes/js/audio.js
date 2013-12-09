@@ -29,6 +29,20 @@ $(document).ready(function(){
 	var dTimeMod = 1;
 	nodes.delay = {};
 
+	//Colours
+	var colours = {
+		0: '#a8cee2', //Blue
+		1: '#c4e58e', //Purple
+		2: '#339e35', //Green
+		3: '#cc2d30' //Red
+
+		//Original Colours
+		// 0: '#8cccd3', //Blue
+		// 1: '#b58cb2', //Purple
+		// 2: '#7fc6b2', //Green
+		// 3: '#f9ba82' //Red
+	}
+
 	//Listeners
 	$("#cutoff").on("change", function() {
 		var mod = $(this).val();
@@ -54,6 +68,10 @@ $(document).ready(function(){
 		nodes.volume.gain.value = $(this).val();
 	});
 
+	$("#reverb").on("change", function() {
+		nodes.wet.gain.value = $(this).val();
+		nodes.dry.gain.value = 1 - ($(this).val());
+	});
 
 
 
@@ -73,8 +91,8 @@ $(document).ready(function(){
 
 	$("#tempo-half").mouseup(function() {
 		dTimeMod = 0.5;
-		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", "#008cba");
-		$(this).css("background-color", "#0079a1");
+		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", colours[0]);
+		$(this).css("background-color", '#8fb5c9');
 		dTime = (tempo/1000) * dTimeMod;
 		for (var i=1; i<=taps; i++) {
 			nodes.delay[i].delayTime.value = i * dTime;
@@ -83,8 +101,8 @@ $(document).ready(function(){
 
 	$("#tempo-whole").mouseup(function() {
 		dTimeMod = 1;
-		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", "#008cba");
-		$(this).css("background-color", "#0079a1");
+		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", colours[0]);
+		$(this).css("background-color", '#8fb5c9');
 		dTime = (tempo/1000) * dTimeMod;
 		for (var i=1; i<=taps; i++) {
 			nodes.delay[i].delayTime.value = i * dTime;
@@ -93,8 +111,8 @@ $(document).ready(function(){
 
 	$("#tempo-double").mouseup(function() {
 		dTimeMod = 2;
-		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", "#008cba");
-		$(this).css("background-color", "#0079a1");
+		$("#tempo-half,#tempo-whole,#tempo-double").css("background-color", colours[0]);
+		$(this).css("background-color", '#8fb5c9');
 		dTime = (tempo/1000) * dTimeMod;
 		for (var i=1; i<=taps; i++) {
 			nodes.delay[i].delayTime.value = i * dTime;
@@ -132,7 +150,9 @@ $(document).ready(function(){
 	//nodeCreate, when needed
 	function nodeCreate(){
 		nodes.filter = context.createBiquadFilter();
-		nodes.delay = context.createConvolver();
+		nodes.reverb = context.createConvolver();
+		nodes.dry = context.createGainNode();
+		nodes.wet = context.createGainNode();
 		nodes.volume = context.createGainNode();
 
 		//Delay creation
@@ -153,7 +173,9 @@ $(document).ready(function(){
 		nodes.filter.frequency.value = cutoff;
 
 		//Set Convolver
-		// nodes.delay.buffer = buffers.ir;
+		nodes.reverb.buffer = buffers.ir;
+		nodes.dry.gain.value = 0.5;
+		nodes.wet.gain.value = 0.5;
 
 		//Set Main Volume
 		nodes.volume.gain.value = 0.8;
@@ -183,16 +205,26 @@ $(document).ready(function(){
 		ADSR.gain.setTargetAtTime(1, currTime, 0.01);
 
 		//connect things
+
+		//ADSR
 		source.connect(ADSR);
 		ADSR.connect(nodes.filter);
-		nodes.filter.connect(nodes.volume);
+
+		//Dry Wet for Verb
+		nodes.filter.connect(nodes.dry);
+		nodes.filter.connect(nodes.wet);
+		nodes.dry.connect(nodes.volume);
+		nodes.wet.connect(nodes.reverb);
+
+		//final connections
 		nodes.volume.connect(context.destination);
+		nodes.reverb.connect(context.destination);
 
 		//delay connections
 		for (var i=1; i<=taps; i++) {
 			nodes.volume.connect(nodes.delay["vol"+i]);
 			nodes.delay["vol"+i].connect(nodes.delay[i]);
-			nodes.delay[i].connect(context.destination);
+			nodes.delay[i].connect(nodes.reverb);
 		}
 
 		return source;
@@ -322,12 +354,6 @@ $(document).ready(function(){
 	}
 
 	function circleClick () {
-		var colours = {
-			0: "#76C6BE",
-			1: "#FF5B60",
-			2: "#008cba",
-			3: "#a276cc"
-		};
 		var num = Math.floor(Math.random()*4);
 		if (this._selected === true) {
 			this.attr({fill: "#ddd"});

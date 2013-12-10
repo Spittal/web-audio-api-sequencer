@@ -65,6 +65,7 @@ $(document).ready(function(){
 	});
 
 	$("#volume").on("change", function() {
+		console.log("he");
 		nodes.volume.gain.value = $(this).val();
 	});
 
@@ -133,7 +134,7 @@ $(document).ready(function(){
 		for (var i = 0; i<sounds.length; i++){
 			xhr = new XMLHttpRequest();
 			xhr._soundName = sounds[i];
-			xhr.open('GET', xhr._soundName + ".wav" , true);
+			xhr.open('GET', "includes/irs/"+xhr._soundName+".wav" , true);
 			xhr.responseType = 'arraybuffer';
 			xhr.addEventListener('load', bufferSound, false);
 			function bufferSound() {
@@ -226,8 +227,8 @@ $(document).ready(function(){
 		nodes.wet.connect(nodes.reverb);
 
 		//final connections
+		nodes.reverb.connect(nodes.volume);
 		nodes.volume.connect(context.destination);
-		nodes.reverb.connect(context.destination);
 
 		return source;
 	}

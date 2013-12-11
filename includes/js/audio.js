@@ -65,7 +65,6 @@ $(document).ready(function(){
 	});
 
 	$("#volume").on("change", function() {
-		console.log("he");
 		nodes.volume.gain.value = $(this).val();
 	});
 
@@ -385,28 +384,28 @@ $(document).ready(function(){
 		switch (row)
 		{
 			case 8: //A
-				hz = 440.0 * octave;
+				hz = 220.0 * octave;
 				break;
 			case 7: //B
-				hz = 493.88 * octave;
+				hz = 246.94 * octave;
 				break;
 			case 6: //C#
-				hz = 554.37 * octave;
+				hz = 277.19 * octave;
 				break;
 			case 5: //D
-				hz = 587.33 * octave;
+				hz = 293.67 * octave;
 				break;
 			case 4: //E
 				hz = 659.26 * octave;
 				break;
 			case 3: //F#
-				hz = 739.99 * octave;
+				hz = 329.63 * octave;
 				break;
 			case 2: //D#
-				hz = 783.99 * octave;
+				hz = 392.00 * octave;
 				break;
 			case 1: //D#
-				hz = 880.0 * octave;
+				hz = 440.0 * octave;
 				break;
 		}
 		clearTimeout(sineTimer[hz]);

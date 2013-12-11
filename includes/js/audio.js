@@ -390,16 +390,16 @@ $(document).ready(function(){
 				hz = 246.94 * octave;
 				break;
 			case 6: //C#
-				hz = 277.19 * octave;
+				hz = 277.18 * octave;
 				break;
 			case 5: //D
-				hz = 293.67 * octave;
+				hz = 293.66 * octave;
 				break;
 			case 4: //E
-				hz = 659.26 * octave;
+				hz = 329.63 * octave;
 				break;
 			case 3: //F#
-				hz = 329.63 * octave;
+				hz = 369.99 * octave;
 				break;
 			case 2: //D#
 				hz = 392.00 * octave;

@@ -156,6 +156,8 @@ $(document).ready(function(){
 		nodes.volume = context.createGainNode();
 
 		//Delay creation
+
+		//Terra is nice!
 		taps = 3;
 		decay = 0.3;
 		dTime = (tempo/1000) * dTimeMod;

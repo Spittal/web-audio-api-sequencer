@@ -3,7 +3,7 @@
 $(document).ready(function(){
 	$(document).foundation();
 
-	var context = new webkitAudioContext();
+	var context = new AudioContext();
 
 	//Sounds to load!
 	var sounds = ['ir'];
@@ -151,9 +151,9 @@ $(document).ready(function(){
 	function nodeCreate(){
 		nodes.filter = context.createBiquadFilter();
 		nodes.reverb = context.createConvolver();
-		nodes.dry = context.createGainNode();
-		nodes.wet = context.createGainNode();
-		nodes.volume = context.createGainNode();
+		nodes.dry = context.createGain();
+		nodes.wet = context.createGain();
+		nodes.volume = context.createGain();
 
 		//Delay creation
 
@@ -163,7 +163,7 @@ $(document).ready(function(){
 		dTime = (tempo/1000) * dTimeMod;
 
 		for (var i=1; i<=taps; i++) {
-		nodes.delay["vol"+i] = context.createGainNode();
+		nodes.delay["vol"+i] = context.createGain();
 		nodes.delay[i] = context.createDelay(maxDelayTime = 100);
 
 		nodes.delay["vol"+i].gain.value = decay / (Math.pow(i,i));
@@ -191,7 +191,7 @@ $(document).ready(function(){
 	function sineSourceRouting(source,soundCount) {
 		//Create unique nodes based on played note.
 		if (nodes[soundCount + "ADSRnode"] == null) {
-			nodes[soundCount + "ADSRnode"] = context.createGainNode();
+			nodes[soundCount + "ADSRnode"] = context.createGain();
 		}
 		var ADSR = nodes[soundCount + "ADSRnode"];
 

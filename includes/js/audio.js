@@ -1,5 +1,3 @@
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
 $(document).ready(function(){
 	$(document).foundation();
 
@@ -31,16 +29,11 @@ $(document).ready(function(){
 
 	//Colours
 	var colours = {
-		0: '#a8cee2', //Blue
-		1: '#c4e58e', //Purple
-		2: '#339e35', //Green
-		3: '#cc2d30' //Red
-
 		//Original Colours
-		// 0: '#8cccd3', //Blue
-		// 1: '#b58cb2', //Purple
-		// 2: '#7fc6b2', //Green
-		// 3: '#f9ba82' //Red
+		0: '#8cccd3', //Blue
+		1: '#b58cb2', //Purple
+		2: '#7fc6b2', //Green
+		3: '#f9ba82' //Red
 	}
 
 	//Listeners
@@ -237,10 +230,10 @@ $(document).ready(function(){
 	function playSine(hz,soundCount) {
 		allowed[hz] = false;
 		source[soundCount] = context.createOscillator();
-		source[soundCount].type = 3;
+	source[soundCount].type = "Sine";
 		source[soundCount].frequency.value = hz;
 		source[soundCount] = sineSourceRouting(source[soundCount],soundCount);
-		source[soundCount].noteOn(0);
+		source[soundCount].start(0);
 		soundCounter++;
 	}
 
@@ -252,7 +245,7 @@ $(document).ready(function(){
 		//SET Release
 		ADSR.gain.setTargetAtTime(0, currTime, 0.2);
 
-		source[soundCount].noteOff(currTime + 5);
+		source[soundCount].stop(currTime + 5);
 		setTimeout(delete source[soundCount], 5000);
 	}
 
@@ -260,7 +253,7 @@ $(document).ready(function(){
 		source[name] = context.createBufferSource();
 		source[name].buffer = buffers[name];
 		source[name].connect(context.destination);
-		source[name].noteOn(0);
+		source[name].start(0);
 	}
 
 	loadSounds();
